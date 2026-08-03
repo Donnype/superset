@@ -193,7 +193,7 @@ class DuckDBParametersMixin:
 class DuckDBEngineSpec(DuckDBParametersMixin, BaseEngineSpec):
     engine = "duckdb"
     engine_name = "DuckDB"
-    default_driver = "duckdb_engine"
+    default_driver = "duckdb_sqlalchemy"
 
     sqlalchemy_uri_placeholder = "duckdb:////path/to/duck.db"
     supports_multivalues_insert = True
@@ -210,12 +210,12 @@ class DuckDBEngineSpec(DuckDBParametersMixin, BaseEngineSpec):
             DatabaseCategory.ANALYTICAL_DATABASES,
             DatabaseCategory.OPEN_SOURCE,
         ],
-        "pypi_packages": ["duckdb-engine"],
+        "pypi_packages": ["duckdb-sqlalchemy"],
         "connection_string": "duckdb:////path/to/duck.db",
         "drivers": [
             {
-                "name": "duckdb-engine",
-                "pypi_package": "duckdb-engine",
+                "name": "duckdb-sqlalchemy",
+                "pypi_package": "duckdb-sqlalchemy",
                 "connection_string": "duckdb:////path/to/duck.db",
                 "is_recommended": True,
             },
@@ -234,7 +234,7 @@ class DuckDBEngineSpec(DuckDBParametersMixin, BaseEngineSpec):
                 ),
                 "logo": "motherduck.png",
                 "homepage_url": "https://motherduck.com/",
-                "pypi_packages": ["duckdb", "duckdb-engine"],
+                "pypi_packages": ["duckdb", "duckdb-sqlalchemy"],
                 "connection_string": "duckdb:///md:{database}?motherduck_token={token}",
                 "parameters": {
                     "database": "MotherDuck database name",
@@ -390,7 +390,7 @@ class MotherDuckEngineSpec(DuckDBEngineSpec):
             DatabaseCategory.CLOUD_DATA_WAREHOUSES,
             DatabaseCategory.HOSTED_OPEN_SOURCE,
         ],
-        "pypi_packages": ["duckdb", "duckdb-engine"],
+        "pypi_packages": ["duckdb", "duckdb-sqlalchemy"],
         "connection_string": "duckdb:///md:{database}?motherduck_token={token}",
         "parameters": {
             "database": "MotherDuck database name",
@@ -399,8 +399,8 @@ class MotherDuckEngineSpec(DuckDBEngineSpec):
         "docs_url": "https://motherduck.com/docs/getting-started/",
         "drivers": [
             {
-                "name": "duckdb-engine",
-                "pypi_package": "duckdb-engine",
+                "name": "duckdb-sqlalchemy",
+                "pypi_package": "duckdb-sqlalchemy",
                 "connection_string": (
                     "duckdb:///md:{database}?motherduck_token={token}"
                 ),
